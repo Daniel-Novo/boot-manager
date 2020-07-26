@@ -1,0 +1,19 @@
+
+
+
+  <o-grid #grid  service="candidates" entity="candidate" keys="ID" columns="ID;PHOTO;NAME;SURNAME;BIRTHDAY;DNI;PHONE;EMAIL;EDUCATION;SPECIALTIES;STATUS;ORIGIN;WAGE_LEVEL;EXPERIENCE_LEVEL;PROFILE;COMMENT;LINKEDIN" keys="ID"
+  orderable="yes" quick-filter="yes" grid-item-height="1:2" sortable-columns="NAME">
+  <o-grid-item *ngFor="let list of grid.dataArray">
+    <o-column layout-padding  class="container-item">
+      <img [src]="list.thumbnailUrl" style="margin-top:8px" empty-image="assets/images/no-image.png">
+      <h4> {{ list.NAME }}  </h4>
+      <div class="phone"><mat-icon>phone</mat-icon><span> {{ list.PHONE }} </span></div>
+      <div class="email"><mat-icon>email</mat-icon><span> {{ list.EMAIL }}</span></div>
+      <div class="domain"><mat-icon>DNI</mat-icon><span style='display:inline-block;padding-left:20px'>      {{ list.DNI }} </span></div>
+      <div class="website"><mat-icon>website</mat-icon><span>  {{ list.ID }}</span></div>
+      <div class="body">
+         {{ list.body }}
+      </div>
+    </o-column>
+  </o-grid-item>
+</o-grid>

@@ -1,0 +1,48 @@
+<o-form service="candidates" entity="candidate" keys="ID" header-actions="R;I;U;D" show-header-navigation="no">
+  <o-row>
+    <o-column>
+      <o-image id="CANDIDATE_PHOTO" attr="PHOTO" empty-image="assets/images/no-image.png" sql-type="OTHER"></o-image>
+    </o-column>
+    <mat-tab-group fxFlex>
+      <mat-tab label="{{ 'CANDIDATE_PERSONAL_INFORMATION' | oTranslate }}">
+        <o-column fxFlex layout-padding>
+          <o-row>
+            <o-text-input class="input-padding" attr="NAME" fxFlex="35" required="yes"></o-text-input>
+            <o-text-input class="input-padding" attr="SURNAME" fxFlex="35" required="yes"></o-text-input>
+            <o-text-input class="input-padding" attr="DNI" fxFlex="15" required="yes"></o-text-input>
+            <o-date-input attr="BIRTHDAY" fxFlex="15"></o-date-input>
+          </o-row>
+          <o-row>
+            <o-integer-input attr="PHONE" class="input-padding" step="5" grouping="no" fxFlex="40"></o-integer-input>
+            <o-email-input attr="EMAIL" fxFlex></o-email-input>
+          </o-row>
+          <o-row>
+            <o-combo fxFlex attr="EDUCATION" query-on-init="no" query-on-bind="yes" filter="yes" value-column="ID"
+              service="master" entity="education" keys="ID" columns="ID;DESCRIPTION" visible-columns="DESCRIPTION"
+              separator=" - " width="160px" class="form-field"></o-combo>
+            <o-combo fxFlex attr="EXPERIENCE_LEVEL" query-on-init="no" query-on-bind="yes" filter="yes"
+              value-column="ID" service="master" entity="experienceLevel" keys="ID" columns="ID;DESCRIPTION"
+              visible-columns="DESCRIPTION" separator=" - " width="160px" class="form-field"></o-combo>
+            <o-combo fxFlex attr="ORIGIN" query-on-init="no" query-on-bind="yes" filter="yes" value-column="ID"
+              service="master" entity="origin" keys="ID" columns="ID;DESCRIPTION" visible-columns="DESCRIPTION"
+              separator=" - " width="160px" class="form-field"></o-combo>
+            <o-combo fxFlex attr="STATUS" query-on-init="no" query-on-bind="yes" filter="yes" value-column="ID"
+              service="master" entity="status" keys="ID" columns="ID;DESCRIPTION" visible-columns="DESCRIPTION"
+              separator=" - " width="160px" class="form-field"></o-combo>
+            <o-combo fxFlex attr="PROFILE" query-on-init="no" query-on-bind="yes" filter="yes" value-column="ID"
+              service="master" entity="profile" keys="ID" columns="ID;DESCRIPTION" visible-columns="DESCRIPTION"
+              separator=" - " width="160px" class="form-field"></o-combo>
+          </o-row>
+          <o-row>
+            <o-text-input attr="WAGE_LEVEL" fxFlex></o-text-input>
+            <o-text-input attr="LINKEDIN" fxFlex></o-text-input>
+          </o-row>
+          <o-row>
+            <o-textarea-input attr="SPECIALTIES" fxFlex></o-textarea-input>
+            <o-textarea-input attr="COMMENT" fxFlex></o-textarea-input>
+          </o-row>
+        </o-column>
+      </mat-tab>
+    </mat-tab-group>
+  </o-row>
+</o-form>

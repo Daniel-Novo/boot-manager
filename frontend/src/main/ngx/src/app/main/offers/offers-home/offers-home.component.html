@@ -1,0 +1,9 @@
+<o-form-layout-manager title="{{'OFFERS' | oTranslate}}"  mode="tab" label-columns="NAME">
+  <div fxFlex>
+    <o-table fxFlex attr="offersTable" service="offers" entity="offerDetails" keys="ID"
+      columns="ID;ACRONYM;DESCRIPTION;APPLICANT;OFFER_STATUS;CREATION_DATE;START_DATE;END_DATE"
+      visible-columns="ID;APPLICANT;ACRONYM;OFFER_STATUS" query-rows="30">
+      <o-table-column attr="ID" title="ID" width="80px"></o-table-column>
+    </o-table>
+  </div>
+</o-form-layout-manager>

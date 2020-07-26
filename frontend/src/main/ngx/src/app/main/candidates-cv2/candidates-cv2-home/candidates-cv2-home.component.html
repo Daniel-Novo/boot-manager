@@ -1,0 +1,61 @@
+ 
+
+ <o-form  editable-detail="no" show-header="no">
+  
+
+    
+
+  
+      <div fxLayout="column" fxLayoutAlign="start start" class="flex-container" fxLayoutGap="12px">
+        
+        
+
+        <div class="candidates" >
+          <o-list #listAccount service="candidates" entity="candidate" keys="ID" class="list-candidates"
+            columns="ID;NAME;SURNAME;BIRTHDAY;DNI;PHONE;EMAIL"
+            controls="no" fxFlex.gt-lg="list-accounts-60" pageable="no">
+             <!-- ; trackBy:trackByIndex  -->
+            <mat-card *ngFor="let account of listAccount.dataArray" o-list-item>
+              <div fxLayout="row wrap" fxLayoutAlign="center center">
+                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="14px" fxFlex="80" fxFlex.lt-lg="100" class="info-account"
+                  ngClass.lt-lg="border-bottom" ngClass="border-right">
+                  <div fxLayout="column" fxLayoutAlign="start start" fxFlexFill>
+                    <div fxLayout="row wrap" class="info-iban" fxLayoutGap="18px">
+                      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="17px">
+                        <label style="color: crimson;">{{ 'ID'| oTranslate }}</label>
+                        <span>{{ account.ID }}</span>
+                      </div>
+                      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="12px">
+                      <label  style="color: crimson;">{{ 'NAME'| oTranslate }}</label>
+                      <span>{{ account.NAME }}  </span></div>
+                    </div>
+                    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="12px">
+                      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="12px">
+                        <label style="color: crimson;">{{ 'DNI'| oTranslate }}</label>
+                        <span >{{ account.DNI }}</span>
+                        
+                      </div>
+                      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="12px" style="color: crimson;">
+                        <label>{{ 'PHONE'| oTranslate }}</label>
+                        <span style="color: black;"> <span>{{ account.PHONE }}</span></span>
+                      </div>
+                      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="12px">
+                        <label><label style="color: crimson;">{{ 'EMAIL'| oTranslate }}</label></label>
+                        <span> <span>{{ account.EMAIL }}</span></span>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </mat-card>
+          </o-list>
+        </div>
+      </div>
+
+  
+  
+</o-form> 

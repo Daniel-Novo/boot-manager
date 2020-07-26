@@ -1,0 +1,45 @@
+<o-form service="candidates" entity="candidate" keys="ID" header-actions="R;I;U;D" show-header-navigation="yes"
+  editable-detail="yes">
+  <mat-tab-group fxFill>
+    <mat-tab label="{{ 'CANDIDATE_PERSONAL_INFORMATION' | oTranslate }}">
+      <o-row>
+        <o-column>
+          <o-image id="CANDIDATE_PHOTO" attr="PHOTO" empty-image="assets/images/no-image.png" sql-type="OTHER">
+          </o-image>
+        </o-column>
+        <o-column fxFlex layout-padding>
+          <o-row>
+            <o-text-input class="input-padding" attr="NAME" fxFlex="35" required="yes"></o-text-input>
+            <o-text-input class="input-padding" attr="SURNAME" fxFlex="35" required="yes"></o-text-input>
+            <o-text-input class="input-padding" attr="DNI" fxFlex="15" required="yes"></o-text-input>
+            <o-date-input attr="BIRTHDAY" fxFlex="15"></o-date-input>
+          </o-row>
+          <o-row>
+            <o-integer-input attr="PHONE" class="input-padding" step="5" grouping="no" fxFlex="40"></o-integer-input>
+            <o-email-input attr="EMAIL" fxFlex></o-email-input>
+          </o-row>
+        
+         
+        </o-column>
+      </o-row>
+    </mat-tab>
+    
+
+    <mat-tab label="{{ 'CANDIDATE_CV' | oTranslate }}">
+      <o-table attr="candidateTable" service="candidates" entity="candidateCV" parent-keys="ID"
+        keys="ID" columns="ID;STUDIES;PERSONAL_INF;LANGUAGES;SKILLS"
+        visible-columns="STUDIES;LANGUAGES;PERSONAL_INF;SKILLS" title="CURRICULUM" query-rows="6"
+        detail-mode='none' insert-table="no">
+        <o-table-insertable-row columns="STUDIES;EXPERIENCE;LANGUAGES;PERSONAL_INF;SKILLS"
+          required-columns="STUDIES">
+        </o-table-insertable-row>
+        <o-table-column attr="STUDIES" multiline="yes" title="Estudios" editable="yes"></o-table-column>
+        <o-table-column attr="LANGUAGES" multiline="yes" title="InformacionPersonal" editable="yes"></o-table-column>
+        <o-table-column attr="PERSONAL_INF" multiline="yes" title="Idiomas" editable="yes"></o-table-column>
+        
+        <o-table-column attr="SKILLS" multiline="yes" title="Habilidades" editable="yes"></o-table-column>
+        
+      </o-table>
+    </mat-tab>
+  </mat-tab-group>
+</o-form>
